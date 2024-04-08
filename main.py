@@ -9,9 +9,20 @@ def calculate_exit_value(investment_amount, exit_multiple, dilution):
 # Streamlit app
 st.title("VC Investment Analysis")
 
+# Pretext
+st.markdown("""
+### Welcome to the VC Investment Analysis App
+
+This app is designed to assist venture capital investors in analyzing potential investment opportunities. 
+Enter your investment parameters, define different scenarios, and visualize the cumulative investment across financing rounds for each scenario. 
+Additionally, key performance metrics such as cash flow at exit, gross investment multiple, and return on investment (ROI) are calculated and displayed for each scenario.
+
+Please input your investment amount and defined risk discount factor and define scenarios in the sidebar on the left.
+""")
+
 # Investment parameters
-investment_amount = st.number_input("Investment amount (in millions)", min_value=0.0) * 1e6  # Convert to millions
-discount_rate = st.number_input("Discount risk rate (in %)", min_value=0.0)
+investment_amount = st.sidebar.number_input("Investment amount (in millions)", min_value=0.0) * 1e6  # Convert to millions
+discount_rate = st.sidebar.number_input("Discount risk rate (in %)", min_value=0.0)
 
 # Scenario definitions (replace with your estimates)
 scenarios = {
